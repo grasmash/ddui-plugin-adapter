@@ -4,6 +4,7 @@
     "type": "library",
     "license": "GPL-2.0+",
     "require": {
-        "eclipsegc/plugins_annotation": "^0.1.1"
+        "eclipsegc/plugins_annotation": "^0.1.1",
+        "symfony/console": "^3.2"
     }
 }
