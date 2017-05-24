@@ -1,5 +1,5 @@
 {
-    "name": "grasmash/ddui-plugin-adapter",
+    "name": "grasmash/ddUi-plugin-adapter",
     "description": "Drupal Dev UI Plugin Adapter",
     "type": "library",
     "license": "GPL-2.0+",
@@ -9,7 +9,7 @@
     },
     "autoload": {
         "psr-4": {
-            "DDUI\\": "src/"
+            "DdUi\\": "src/"
         }
     }
 }

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace DDUI\Factory;
+namespace DdUi\Factory;
 
 
 use EclipseGc\Plugin\Factory\FactoryInterface;

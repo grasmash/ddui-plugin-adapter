@@ -1,11 +1,13 @@
 <?php
 
 
-namespace DDUI\Annotation;
+namespace DdUi\Annotation;
 
 use EclipseGc\PluginAnnotation\Definition\AnnotatedPluginDefinition;
 
 /**
  * @Annotation
  */
-class Plugin extends AnnotatedPluginDefinition {}
+class DdUiPage extends AnnotatedPluginDefinition {
+
+}

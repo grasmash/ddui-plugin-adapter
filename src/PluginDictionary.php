@@ -1,10 +1,8 @@
 <?php
 
+namespace DdUi;
 
-namespace DDUI;
-
-
-use DDUI\Factory\PluginFactoryResolver;
+use DdUi\Factory\PluginFactoryResolver;
 use EclipseGc\Plugin\Dictionary\PluginDictionaryInterface;
 use EclipseGc\Plugin\Traits\PluginDictionaryTrait;
 use EclipseGc\PluginAnnotation\Discovery\AnnotatedPluginDiscovery;
@@ -19,10 +17,11 @@ class PluginDictionary implements PluginDictionaryInterface {
    *   A traversable list of namespaces for this application.
    */
   public function __construct(\Traversable $namespaces) {
-    $this->discovery = new AnnotatedPluginDiscovery($namespaces, 'Plugin', 'DDUI\PluginInterface', 'DDUI\Annotation\Plugin');
+    $this->discovery = new AnnotatedPluginDiscovery($namespaces, 'Plugin', 'DdUi\DdUiPageInterface',
+      'DdUi\Annotation\DdUiPage');
     $this->factoryResolver = new PluginFactoryResolver();
-    $this->factoryClass = 'DDUI\Factory\PluginFactory';
-    $this->pluginType = 'ddui_plugin';
+    $this->factoryClass = 'DdUi\Factory\PluginFactory';
+    $this->pluginType = 'ddUi_page';
   }
 
 }

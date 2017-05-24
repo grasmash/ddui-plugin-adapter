@@ -1,13 +1,21 @@
 #!/usr/bin/env php
 <?php
-require __DIR__.'/../vendor/autoload.php';
 
+$autoloader = require __DIR__ . '/../vendor/autoload.php';
+
+use DdUi\Command\ListCommand;
+use DdUi\PluginDictionary;
+use EclipseGc\Plugin\Namespaces;
 use Symfony\Component\Console\Application;
-use Grasmash\DdUi\Command\GetPageCommand;
+use DdUi\Command\GetPageCommand;
 
-$application = new Application('ddui', '1.0.0');
+$namespaces = Namespaces::extractNamespaces($autoloader);
+$dictionary = new PluginDictionary($namespaces);
+
+$application = new Application('DdUi', '1.0.0');
 $commands = [
-  new GetPageCommand(),
+  new GetPageCommand(null, $dictionary),
+  new ListCommand(null, $dictionary),
 ];
 
 $application->addCommands($commands);

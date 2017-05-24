@@ -1,7 +1,10 @@
 <?php
 
-namespace Grasmash\DdUi\Command;
+namespace DdUi\Command;
 
+use DdUi\PluginDictionary;
+use EclipseGc\Plugin\Dictionary\PluginDictionaryInterface;
+use EclipseGc\Plugin\Namespaces;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -10,10 +13,28 @@ use Symfony\Component\Console\Output\OutputInterface;
 /**
  * Class GetPageCommand
  *
- * @package Grasmash\DdUi\Command
+ * @package DdUi\Command
  */
 class GetPageCommand extends Command
 {
+    /**
+     * @var \EclipseGc\Plugin\Dictionary\PluginDictionaryInterface
+     */
+    protected $dictionary;
+
+    /**
+     * GetPageCommand constructor.
+     *
+     * @param null $name
+     * @param \EclipseGc\Plugin\Dictionary\PluginDictionaryInterface $dictionary
+     */
+    public function __construct($name = null, PluginDictionaryInterface $dictionary)
+    {
+        $this->dictionary = $dictionary;
+        parent::__construct($name);
+
+    }
+
     /**
      * Configures the command.
      */
@@ -40,9 +61,11 @@ class GetPageCommand extends Command
      *   This method does not return anything.
      */
     protected function execute(InputInterface $input, OutputInterface $output) {
-        // plugin name
-        // page name
-        // get page from plugin
+        $plugin_name = $input->getArgument('plugin');
+        $plugin = $this->dictionary->createInstance($plugin_name);
+        $markup = $plugin->build();
+
+        return $markup;
     }
 
 }
