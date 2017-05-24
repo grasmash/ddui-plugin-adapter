@@ -1,0 +1,9 @@
+{
+    "name": "grasmash/ddui-plugin-adapter",
+    "description": "Drupal Dev UI Plugin Adapter",
+    "type": "library",
+    "license": "GPL-2.0+",
+    "require": {
+        "eclipsegc/plugins_annotation": "^0.1.1"
+    }
+}
