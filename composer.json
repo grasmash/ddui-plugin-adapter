@@ -5,5 +5,10 @@
     "license": "GPL-2.0+",
     "require": {
         "eclipsegc/plugins_annotation": "^0.1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "DDUI\\": "src/"
+        }
     }
 }
